@@ -1,8 +1,8 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-use demo_macro::{HelloMacro, MyDefault};
 use rust_demo::HelloMacro;
+use simple_macro::{HelloMacro, MyDefault};
 
 #[derive(HelloMacro)]
 struct Sunfei;

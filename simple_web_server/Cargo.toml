@@ -1,0 +1,11 @@
+[package]
+name = "simple_web_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+futures = "*"
+
+[dependencies.async-std]
+version = "*"
+features = ["attributes"]

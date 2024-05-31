@@ -1,4 +1,4 @@
-workspace = { members = ["demo_macro", "timer_future"] }
+workspace = { members = ["simple_macro", "timer_future", "simple_web_server", "simple_redis"] }
 
 [package]
 name = "rust_demo"
@@ -12,4 +12,5 @@ rand = "*"
 chrono = "*"
 rand_distr = "*"
 futures = "*"
-demo_macro = { path = "./demo_macro" }
+simple_macro = { path = "./simple_macro" }
+simple_web_server = { path = "./simple_web_server" }
