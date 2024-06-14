@@ -9,6 +9,7 @@ mini-redis = "0.4"
 bytes = "1"
 futures="*"
 crossbeam = "0.8"
+tokio-stream = "0.1"
 
 [[example]]
 name = "simple_redis_demo"

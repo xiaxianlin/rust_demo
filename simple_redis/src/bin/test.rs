@@ -1,38 +1,21 @@
-use futures::future::poll_fn;
-use futures::Future;
-use simple_redis::Delay;
-use std::{
-    pin::Pin,
-    task::Poll,
-    time::{Duration, Instant},
-};
-
-// #[tokio::main]
-// async fn main() {
-//     let when = Instant::now() + Duration::from_millis(10);
-//     let future = Delay { when };
-
-//     // 运行并等待 Future 的完成
-//     let out = future.await;
-
-//     // 判断 Future 返回的字符串是否是 "done"
-//     assert_eq!(out, "done");
-// }
-//
+use tokio::sync::mpsc;
 
 #[tokio::main]
 async fn main() {
-    let when = Instant::now() + Duration::from_millis(10);
-    let mut delay = Some(Delay { when, waker: None });
+    let (tx1, mut rx1) = mpsc::channel(128);
+    let (tx2, mut rx2) = mpsc::channel(128);
+    let (tx3, mut rx3) = mpsc::channel(128);
 
-    poll_fn(move |cx| {
-        let mut delay = delay.take().unwrap();
-        let res = Pin::new(&mut delay).poll(cx);
-        assert!(res.is_pending());
-        tokio::spawn(async move {
-            delay.await;
-        });
-        Poll::Ready(())
-    })
-    .await;
+    loop {
+        let msg = tokio::select! {
+            Some(msg) = rx1.recv() => msg,
+            Some(msg) = rx2.recv() => msg,
+            Some(msg) = rx3.recv() => msg,
+            else => { break }
+        };
+
+        println!("Got {:?}", msg);
+    }
+
+    println!("All channels have been closed.");
 }
