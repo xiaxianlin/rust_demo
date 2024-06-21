@@ -3,3 +3,11 @@ In file poem.txt
 ---------- [RESULT] ----------
 Are you nobody, too?
 How dreary to be somebody!
+
+
+自带 37.3
+外圈 16
+内圈 40
+攻击 112
+辅助 80
+- 285.3
