@@ -94,7 +94,7 @@ impl<T> List<T> {
 
 impl<T> Drop for List<T> {
     fn drop(&mut self) {
-        while let Some(_) = self.pop() {}
+        while self.pop().is_some() {}
     }
 }
 
@@ -128,6 +128,12 @@ impl<'a, T> Iterator for IterMut<'a, T> {
                 &mut node.elem
             })
         }
+    }
+}
+
+impl<T> Default for List<T> {
+    fn default() -> Self {
+        Self::new()
     }
 }
 #[cfg(test)]
