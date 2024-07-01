@@ -1,4 +1,4 @@
-workspace = { members = ["simple_macro", "timer_future", "simple_web_server", "simple_redis", "lists"] }
+workspace = { members = ["simple_macro", "timer_future", "simple_web_server", "simple_redis", "lists", "nomicon"] }
 
 [package]
 name = "rust_demo"
