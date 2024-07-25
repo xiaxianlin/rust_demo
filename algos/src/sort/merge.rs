@@ -17,7 +17,7 @@ where
             j += 1;
         }
     }
-    
+
     while i < arr1.len() {
         arr[i + j + lo] = take(&mut arr1[i]);
         i += 1;
