@@ -1,4 +1,4 @@
-fn partition<T: PartialOrd>(arr: &mut [T], lo: usize, hi: usize) -> usize {
+pub fn partition<T: PartialOrd>(arr: &mut [T], lo: usize, hi: usize) -> usize {
     let pivot = lo;
     let (mut left, mut right) = (lo, hi);
     while left < right {
