@@ -4,3 +4,5 @@ mod sort;
 mod string;
 #[allow(unused)]
 mod search;
+#[allow(unused)]
+mod graph;
