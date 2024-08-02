@@ -1,1 +1,7 @@
 some bytes
+
+
+coins: [1,2,5]
+amount: 11
+
+amount: 0

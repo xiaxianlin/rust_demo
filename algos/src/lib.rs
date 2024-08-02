@@ -6,3 +6,5 @@ mod string;
 mod search;
 #[allow(unused)]
 mod graph;
+#[allow(unused)]
+mod dynamic_programming;
